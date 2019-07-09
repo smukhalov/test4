@@ -1,0 +1,29 @@
+ERROR: 2019/07/08 16:24:35 bootstrapper.go:12: init
+ERROR: 2019/07/08 16:24:35 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 16:24:42 utils.go:32: AppError]: EOF
+ERROR: 2019/07/08 16:27:11 bootstrapper.go:12: init
+ERROR: 2019/07/08 16:27:11 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 16:34:14 bootstrapper.go:12: init
+ERROR: 2019/07/08 16:34:14 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 16:59:31 bootstrapper.go:12: init
+ERROR: 2019/07/08 16:59:31 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 17:00:13 bootstrapper.go:12: init
+ERROR: 2019/07/08 17:00:13 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 17:00:20 userController.go:19: Register
+ERROR: 2019/07/08 17:00:20 userController.go:20: &{0xc42000c080 <nil> <nil> false true {0 0} false false false 0x679a90}
+ERROR: 2019/07/08 17:01:49 bootstrapper.go:12: init
+ERROR: 2019/07/08 17:01:49 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 17:01:55 userController.go:19: Register
+ERROR: 2019/07/08 17:01:55 userController.go:20: &{0xc420152020 <nil> <nil> false true {0 0} false false false 0x679a90}
+ERROR: 2019/07/08 17:32:36 bootstrapper.go:12: init
+ERROR: 2019/07/08 17:32:36 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 17:32:47 userController.go:19: Register
+ERROR: 2019/07/08 17:32:47 userController.go:20: &{0xc42010aa60 <nil> <nil> false true {0 0} false false false 0x679a90}
+ERROR: 2019/07/08 17:33:21 userController.go:19: Register
+ERROR: 2019/07/08 17:33:21 userController.go:20: &{0xc42000c080 <nil> <nil> false true {0 0} false false false 0x679a90}
+ERROR: 2019/07/08 17:34:37 userController.go:19: Register
+ERROR: 2019/07/08 17:34:37 userController.go:20: &{0xc42010ac00 <nil> <nil> false true {0 0} false false false 0x679a90}
+ERROR: 2019/07/08 17:35:41 bootstrapper.go:12: init
+ERROR: 2019/07/08 17:35:41 user.go:11: SetUserRoutes123
+ERROR: 2019/07/08 17:35:48 userController.go:19: Register
+ERROR: 2019/07/08 17:35:48 userController.go:20: &{0xc42010a260 <nil> <nil> false true {0 0} false false false 0x679a90}
