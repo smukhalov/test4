@@ -9,7 +9,7 @@ import (
 	"test4/routers"
 )
 
-//Entry point of the program
+//Hello gihub.com
 func main() {
 
 	//common.StartUp() - Replaced with init method
