@@ -4,11 +4,12 @@ import (
   "context"
   "time"
   "errors"
+  "golang.org/x/crypto/bcrypt"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-  "test4/models"
-  "test4/common"
+  "github.com/smukhalov/test4/models"
+  "github.com/smukhalov/test4/common"
 )
 
 func CreateUser(user *models.User) (primitive.ObjectID, error) {
@@ -17,6 +18,13 @@ func CreateUser(user *models.User) (primitive.ObjectID, error) {
   var mongoUrl = common.AppConfig.MongoUrl // "mongodb://localhost:27017"
 
   userid := primitive.NewObjectID()
+
+  hpass, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
+	if err != nil {
+		return userid, err
+	}
+	(*user).HashPassword = hpass
+	(*user).Password = ""
 
   client, err := mongo.NewClient(options.Client().ApplyURI(mongoUrl))
   if err != nil {

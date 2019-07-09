@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"test4/common"
-	"test4/data"
-	_"test4/models"
+	"github.com/smukhalov/test4/common"
+	"github.com/smukhalov/test4/data"
+	_"github.com/smukhalov/test4/models"
 )
 
 // Register add a new User document

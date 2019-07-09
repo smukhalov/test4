@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 	"github.com/urfave/negroni"
-	"test4/common"
-	"test4/routers"
+	"github.com/smukhalov/test4/common"
+	"github.com/smukhalov/test4/routers"
 )
 
 //Hello gihub.com

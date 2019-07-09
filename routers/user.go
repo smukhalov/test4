@@ -1,7 +1,7 @@
 package routers
 
 import (
-  "test4/controllers"
+  "github.com/smukhalov/test4/controllers"
 	"github.com/gorilla/mux"
 )
 

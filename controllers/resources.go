@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"test4/models"
+	"github.com/smukhalov/test4/models"
 )
 
 //Models for JSON resources
@@ -29,7 +29,7 @@ type (
 		User  models.User `json:"user"`
 		Token string      `json:"token"`
 	}
-	
+
 /*	// For Post/Put - /tasks
 	// For Get - /tasks/id
 	TaskResource struct {

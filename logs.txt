@@ -27,3 +27,5 @@ ERROR: 2019/07/08 17:35:41 bootstrapper.go:12: init
 ERROR: 2019/07/08 17:35:41 user.go:11: SetUserRoutes123
 ERROR: 2019/07/08 17:35:48 userController.go:19: Register
 ERROR: 2019/07/08 17:35:48 userController.go:20: &{0xc42010a260 <nil> <nil> false true {0 0} false false false 0x679a90}
+ERROR: 2019/07/09 17:41:46 utils.go:33: message: Error has occurred on db connect
+ERROR: 2019/07/09 17:41:46 utils.go:34: handlerError: HashPassword
