@@ -29,3 +29,13 @@ ERROR: 2019/07/08 17:35:48 userController.go:19: Register
 ERROR: 2019/07/08 17:35:48 userController.go:20: &{0xc42010a260 <nil> <nil> false true {0 0} false false false 0x679a90}
 ERROR: 2019/07/09 17:41:46 utils.go:33: message: Error has occurred on db connect
 ERROR: 2019/07/09 17:41:46 utils.go:34: handlerError: HashPassword
+ERROR: 2019/07/11 17:27:34 utils.go:33: message: Test data
+ERROR: 2019/07/11 17:27:34 utils.go:34: handlerError: Ошибка test
+ERROR: 2019/07/12 12:18:42 utils.go:33: message: Error has occurred on db connect
+ERROR: 2019/07/12 12:18:42 utils.go:34: handlerError: multiple write errors: [{write errors: [{E11000 duplicate key error collection: test4db.users index: email_1 dup key: { : "aa@aa1.com" }}]}, {<nil>}]
+ERROR: 2019/07/12 13:38:22 utils.go:33: message: Error has occurred on db connect
+ERROR: 2019/07/12 13:38:22 utils.go:34: handlerError: multiple write errors: [{write errors: [{E11000 duplicate key error collection: test4db.users index: email_1 dup key: { : "aa@aa1.com" }}]}, {<nil>}]
+ERROR: 2019/07/12 13:39:43 utils.go:33: message: Error has occurred on db connect
+ERROR: 2019/07/12 13:39:43 utils.go:34: handlerError: Пользователь уже существует
+ERROR: 2019/07/12 13:41:23 utils.go:33: message: Error has occurred on db connect
+ERROR: 2019/07/12 13:41:23 utils.go:34: handlerError: Пользователь aa@aa1.com уже существует

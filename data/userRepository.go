@@ -4,6 +4,8 @@ import (
   "context"
   "time"
   "errors"
+  "strings"
+  "fmt"
   "golang.org/x/crypto/bcrypt"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -23,8 +25,8 @@ func CreateUser(user *models.User) (primitive.ObjectID, error) {
 	if err != nil {
 		return userid, err
 	}
-	(*user).HashPassword = hpass
-	(*user).Password = ""
+	user.HashPassword = hpass
+	user.Password = ""
 
   client, err := mongo.NewClient(options.Client().ApplyURI(mongoUrl))
   if err != nil {
@@ -43,6 +45,10 @@ func CreateUser(user *models.User) (primitive.ObjectID, error) {
 
   insertResult, err := collection.InsertOne(ctx, user)
   if err != nil {
+    if strings.Contains(err.Error(),"duplicate key error") {
+      return userid, errors.New(fmt.Sprintf("Пользователь %s уже существует", user.Email))
+    }
+
     return userid, err
   }
 

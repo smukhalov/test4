@@ -3,7 +3,6 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
-
 	"github.com/smukhalov/test4/common"
 	"github.com/smukhalov/test4/data"
 	_"github.com/smukhalov/test4/models"
@@ -38,12 +37,6 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	/*context := NewContext()
-	defer context.Close()
-	col := context.DbCollection("users")
-	repo := &data.UserRepository{C: col}
-	// Insert User document
-	repo.CreateUser(user) */
 	// Clean-up the hashpassword to eliminate it from response JSON
 	user.Id = userid
 	user.HashPassword = nil
