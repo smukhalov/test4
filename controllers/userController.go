@@ -67,33 +67,26 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		common.DisplayAppError(
 			w,
 			err,
-			"Invalid Login data",
+			"Invalid Login data1",
 			500,
 		)
 		return
 	}
-	/*loginModel := dataResource.Data
-	loginUser := models.User{
-		Email:    loginModel.Email,
-		Password: loginModel.Password,
-	}
-	context := NewContext()
-	defer context.Close()
-	col := context.DbCollection("users")
-	repo := &data.UserRepository{C: col}
-	// Authenticate the login user
-	user, err := repo.Login(loginUser)
+
+	loginModel := dataResource.Data
+	user, err := data.Login(loginModel.Email, loginModel.Password)
 	if err != nil {
 		common.DisplayAppError(
 			w,
 			err,
-			"Invalid login credentials",
-			401,
+			"Invalid Login data2",
+			500,
 		)
 		return
 	}
+
 	// Generate JWT token
-	token, err = common.GenerateJWT(user.Email, "member")
+	token, err := common.GenerateJWT(user.Email, "member")
 	if err != nil {
 		common.DisplayAppError(
 			w,
@@ -107,7 +100,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	// Clean-up the hashpassword to eliminate it from response JSON
 	user.HashPassword = nil
 	authUser := AuthUserModel{
-		User:  user,
+		User:  *user,
 		Token: token,
 	}
 	j, err := json.Marshal(AuthUserResource{Data: authUser})
@@ -121,5 +114,5 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.WriteHeader(http.StatusOK)
-	w.Write(j) */
+	w.Write(j)
 }

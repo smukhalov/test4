@@ -39,3 +39,7 @@ ERROR: 2019/07/12 13:39:43 utils.go:33: message: Error has occurred on db connec
 ERROR: 2019/07/12 13:39:43 utils.go:34: handlerError: Пользователь уже существует
 ERROR: 2019/07/12 13:41:23 utils.go:33: message: Error has occurred on db connect
 ERROR: 2019/07/12 13:41:23 utils.go:34: handlerError: Пользователь aa@aa1.com уже существует
+ERROR: 2019/07/12 15:52:16 utils.go:33: message: Invalid Login data
+ERROR: 2019/07/12 15:52:16 utils.go:34: handlerError: cannot Decode to nil value
+ERROR: 2019/07/12 15:53:58 utils.go:33: message: Invalid Login data2
+ERROR: 2019/07/12 15:53:59 utils.go:34: handlerError: cannot Decode to nil value

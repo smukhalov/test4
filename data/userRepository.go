@@ -7,6 +7,7 @@ import (
   "strings"
   "fmt"
   "golang.org/x/crypto/bcrypt"
+  "go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -14,11 +15,11 @@ import (
   "github.com/smukhalov/test4/common"
 )
 
-func CreateUser(user *models.User) (primitive.ObjectID, error) {
-  var dbName string = common.AppConfig.Database // "test4db"
-  var userCollection = common.AppConfig.UserCollection // "users"
-  var mongoUrl = common.AppConfig.MongoUrl // "mongodb://localhost:27017"
+var dbName string = common.AppConfig.Database // "test4db"
+var userCollection = common.AppConfig.UserCollection // "users"
+var mongoUrl = common.AppConfig.MongoUrl // "mongodb://localhost:27017"
 
+func CreateUser(user *models.User) (primitive.ObjectID, error) {
   userid := primitive.NewObjectID()
 
   hpass, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
@@ -59,4 +60,34 @@ func CreateUser(user *models.User) (primitive.ObjectID, error) {
   }
 
   return userid, nil
+}
+
+func Login(email, password string) (*models.User, error) {
+
+  client, err := mongo.NewClient(options.Client().ApplyURI(mongoUrl))
+  if err != nil {
+    return nil, err
+  }
+
+  ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+  defer cancel()
+
+  err = client.Connect(ctx)
+  if err != nil {
+     return nil, err
+  }
+
+  collection := client.Database(dbName).Collection(userCollection)
+
+  var user models.User
+  filter := bson.D{{"email", email}}
+
+  err = collection.FindOne(ctx, filter).Decode(&user)
+  if err != nil {
+    return nil, err
+  }
+
+	// Validate password
+	err = bcrypt.CompareHashAndPassword(user.HashPassword, []byte(password))
+	return &user, err
 }
